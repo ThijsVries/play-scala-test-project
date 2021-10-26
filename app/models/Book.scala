@@ -4,10 +4,10 @@ import io.circe._, io.circe.generic.auto._, io.circe.parser._, io.circe.syntax._
 import java.time.LocalDate
 
 class JsonMappingException extends Exception
-case class Book(title : String, author : Author)
+case class Book(id: Long, title : String, authorId : Long)
 
 object Book {
-    var books : List[Book] = List[Book](Book("Example book", Author(1L,"Foo", "Bar", LocalDate.of(1996,5,25))))
+    var books : List[Book] = List[Book]()
 
     def save(book : Book) = {
         books = books ::: List(book)
