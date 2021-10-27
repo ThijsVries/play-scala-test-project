@@ -9,17 +9,15 @@ import play.api.libs.json.Writes
 import play.api.libs.json.JsPath
 import play.api.libs.json.JsError
 import models.JsonMappingException
-import models.AuthorRepository
-import models.BookRepository
 import java.time.LocalDate
 import models.Author
-import scala.concurrent.ExecutionContext
+import services.AuthorService
 
 /** This controller creates an `Action` to handle HTTP requests to the
   * application's home page.
   */
 @Singleton
-class HomeController @Inject() (val bookRepo : BookRepository, val authorRepo : AuthorRepository, val controllerComponents: ControllerComponents)(implicit ec: ExecutionContext)
+class HomeController @Inject() (val controllerComponents: ControllerComponents, authorService : AuthorService)
     extends BaseController {
 
   /** Create an Action to render an HTML page.
@@ -30,22 +28,6 @@ class HomeController @Inject() (val bookRepo : BookRepository, val authorRepo : 
 
   def index() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
-  }
-
-  def test() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.create())
-  }
-
-  def saveAuthor() = Action {
-    authorRepo.create("Foo", "Bar", LocalDate.of(1996, 5, 25))
-    bookRepo.create("TestBook", 1)
-    Ok(Json.obj("message" -> "OK"))
-  }
-
-  def getAuthors() = Action.async { implicit request => 
-    authorRepo.list().map { author =>
-      Ok(Json.toJson(author))
-    }
   }
 
   def getBooks() = Action {
