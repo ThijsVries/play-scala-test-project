@@ -3,7 +3,6 @@ package controllers
 import javax.inject.{Inject, Singleton}
 import play.api.mvc.ControllerComponents
 import play.api.mvc.BaseController
-import javax.inject
 import play.api.mvc.AbstractController
 import models.Author
 import models.JsonMappingException

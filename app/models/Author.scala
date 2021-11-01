@@ -26,7 +26,7 @@ object Author {
                 println(fail.message)
                 throw new JsonMappingException()
             }
-            case Right(author) => return author
+            case Right(author) => author
         }
     }
 
@@ -36,7 +36,7 @@ object Author {
                 println(fail.getMessage())
                 throw new JsonMappingException()
             }
-            case Right(dto) => return new Author(0L, dto.firstName, dto.lastName, dto.birthDate)
+            case Right(dto) => new Author(0L, dto.firstName, dto.lastName, dto.birthDate)
         }
     }
 

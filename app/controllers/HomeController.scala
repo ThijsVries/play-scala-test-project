@@ -11,13 +11,12 @@ import play.api.libs.json.JsError
 import models.JsonMappingException
 import java.time.LocalDate
 import models.Author
-import services.AuthorService
 
 /** This controller creates an `Action` to handle HTTP requests to the
   * application's home page.
   */
 @Singleton
-class HomeController @Inject() (val controllerComponents: ControllerComponents, authorService : AuthorService)
+class HomeController @Inject() (val controllerComponents: ControllerComponents)
     extends BaseController {
 
   /** Create an Action to render an HTML page.
@@ -28,18 +27,5 @@ class HomeController @Inject() (val controllerComponents: ControllerComponents, 
 
   def index() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
-  }
-
-  def getBooks() = Action {
-    Ok(Book.toJson())
-  }
-
-  def saveBook() = Action(parse.json) { request =>
-    try {
-      Book.fromJson(request.body.toString())
-      Ok(Json.obj("message" -> "Success!"))
-    } catch {
-      case e: JsonMappingException => BadRequest(Json.obj("message" -> "Invalid json input"))
-    }
   }
 }

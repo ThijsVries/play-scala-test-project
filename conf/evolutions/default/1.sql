@@ -3,18 +3,16 @@ DROP TABLE IF EXISTS "author";
 DROP TABLE IF EXISTS "book";
 
 CREATE TABLE "author" (
-    "author_id" BIGINT GENERATED ALWAYS AS IDENTITY,
+    "author_id" SERIAL PRIMARY KEY,
     "first_name" VARCHAR NOT NULL,
     "last_name" VARCHAR NOT NULL,
-    "birth_date" DATE NOT NULL,
-    PRIMARY KEY("author_id")
+    "birth_date" DATE NOT NULL
 );
 
 CREATE TABLE "book" (
-    "book_id" BIGINT GENERATED ALWAYS AS IDENTITY,
+    "book_id" SERIAL PRIMARY KEY,
     "title" VARCHAR NOT NULL,
     "author_id" BIGINT NOT NULL,
-    PRIMARY KEY("book_id"),
     CONSTRAINT "fk_author"
         FOREIGN KEY("author_id")
         REFERENCES "author"("author_id")

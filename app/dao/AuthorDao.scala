@@ -28,12 +28,29 @@ class AuthorDao @inject.Inject()(context : DBContext) {
         context.run(q)
     }
 
-    def getById(id: Long) : List[Author] = {
+    def get(id: Long) : Author = {
         val q = quote {
             query[Author].filter(a => a.author_id == lift(id))
         }
 
-        context.run(q)
+        val results : List[Author] = context.run(q)
+        results.size match {
+            case 0 => throw new NoResultException
+            case 1 => results.head
+            case _ => throw new MultipleResultsException
+        }
+    }
+
+    def authorExists(id: Long) : Boolean = {
+        val q = quote {
+            query[Author].filter(a => a.author_id == lift(id)).size
+        }
+
+        context.run(q) match {
+            case 0 => return false
+            case 1 => return true
+            case _ => throw new MultipleResultsException
+        }
     }
 
     def getAuthorByFirstName(firstName : String) : List[Author] = {
