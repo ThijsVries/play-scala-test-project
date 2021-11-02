@@ -60,4 +60,8 @@ class TaskController @Inject()(val cc : ControllerComponents, val taskDao : Task
         val to : LocalDate = range.to
         Ok(Task.toJson(taskDao.between(from,to)).spaces2)
     }
+
+    def byStatus(done : Boolean) = Action {
+        Ok(Task.toJson(taskDao.byStatus(done)).spaces2)
+    }
 }

@@ -77,6 +77,14 @@ class TaskDao @Inject()(context : DBContext) {
         }
     }
 
+    def byStatus(done : Boolean) : List[Task] = {
+        val q = quote {
+            taskTable.filter(t => t.done == lift(done))
+        }
+
+        context.run(q)
+    }
+
     private implicit class LocalDateQuotes(left : LocalDate) {
         def >(right: LocalDate) = quote(infix"$left > $right".as[Boolean])
         def <(right: LocalDate) = quote(infix"$left < $right".as[Boolean])
