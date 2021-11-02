@@ -36,7 +36,7 @@ class TaskController @Inject()(val cc : ControllerComponents, val taskDao : Task
             Ok(Task.toJson(taskDao.get(taskId)).spaces2)
         } catch {
             case e: NoResultException => BadRequest(Json.obj("message" -> "No task found for the given id!"))
-            case e: MultipleResultsException => BadRequest(Json.obj("message" -> "Multiple tasks found for the given id, this should never be possible?!?!?!"))
+            case e: MultipleResultsException => BadRequest(Json.obj("message" -> "Multiple tasks found for the given id, this should never be possible?!"))
         }
     }
 
@@ -63,5 +63,10 @@ class TaskController @Inject()(val cc : ControllerComponents, val taskDao : Task
 
     def byStatus(done : Boolean) = Action {
         Ok(Task.toJson(taskDao.byStatus(done)).spaces2)
+    }
+
+    def done(taskId : Long) = Action {
+        val res = taskDao.done(taskId)
+        Ok(Json.obj("message" -> s"Update succerss: $res"))
     }
 }

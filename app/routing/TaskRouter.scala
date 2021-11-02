@@ -17,6 +17,8 @@ class TaskRouter @Inject()(taskController : TaskController) extends SimpleRouter
             taskController.byStatus(query.toBoolean)
         case GET(p"/" ? q"from=$from" & q"to=$to") =>
             taskController.between(DateRange(LocalDate.parse(from), LocalDate.parse(to)))
+        case GET(p"/$taskId/done") =>
+            taskController.done(taskId.toLong)
         case POST(p"/") => 
             taskController.save()
         case PUT(p"/") => 

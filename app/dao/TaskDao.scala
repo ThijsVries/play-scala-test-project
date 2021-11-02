@@ -77,6 +77,17 @@ class TaskDao @Inject()(context : DBContext) {
         }
     }
 
+    def done(taskId : Long) : Boolean = {
+        val q = quote {
+            taskTable.filter(t => t.taskId == lift(taskId)).update(_.done -> lift(true))
+        }
+
+        context.run(q) match {
+            case 1 => true
+            case 0 => false
+        }
+    }
+
     def byStatus(done : Boolean) : List[Task] = {
         val q = quote {
             taskTable.filter(t => t.done == lift(done))
