@@ -9,10 +9,4 @@ GET     /                               controllers.HomeController.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)
 
-POST     /task                          controllers.TaskController.save()
-PUT      /task                          controllers.TaskController.update()
-GET      /task                          controllers.TaskController.all()
-GET      /task/status/:done             controllers.TaskController.byStatus(done : Boolean)
-GET      /task/between                  controllers.TaskController.between(between : DateRange)
-GET      /task/:taskId                  controllers.TaskController.get(taskId : Long)
-DELETE   /task/:taskId                  controllers.TaskController.delete(taskId : Long)
+->       /task/                           routing.TaskRouter
