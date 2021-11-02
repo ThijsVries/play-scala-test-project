@@ -12,6 +12,6 @@ GET     /assets/*file                   controllers.Assets.versioned(path="/publ
 POST     /task                          controllers.TaskController.save()
 PUT      /task                          controllers.TaskController.update()
 GET      /task                          controllers.TaskController.all()
+GET      /task/between                  controllers.TaskController.between(between : DateRange)
 GET      /task/:taskId                  controllers.TaskController.get(taskId : Long)
 DELETE   /task/:taskId                  controllers.TaskController.delete(taskId : Long)
-GET      /between                       controllers.TaskController.between(between : DateRange)

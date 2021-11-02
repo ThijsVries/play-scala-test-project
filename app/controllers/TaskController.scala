@@ -58,6 +58,6 @@ class TaskController @Inject()(val cc : ControllerComponents, val taskDao : Task
     def between(range : DateRange) = Action {
         val from : LocalDate = range.from
         val to : LocalDate = range.to
-        Ok(Json.obj("message" -> s"from $from and to $to"))
+        Ok(Task.toJson(taskDao.between(from,to)).spaces2)
     }
 }

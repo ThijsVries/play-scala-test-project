@@ -58,6 +58,14 @@ class TaskDao @Inject()(context : DBContext) {
         }
     }
 
+    def between(from : LocalDate, to : LocalDate) : List[Task] = {
+        val q = quote {
+            taskTable.filter(t => t.dueDate.forall(d => d > lift(from) && d < lift(to)))
+        }
+
+        context.run(q)
+    }
+
     def delete(taskId : Long) : Boolean = {
         val q = quote {
             taskTable.filter(t => t.taskId == lift(taskId)).delete
@@ -67,6 +75,11 @@ class TaskDao @Inject()(context : DBContext) {
             case 1 => true
             case 0 => false
         }
+    }
+
+    private implicit class LocalDateQuotes(left : LocalDate) {
+        def >(right: LocalDate) = quote(infix"$left > $right".as[Boolean])
+        def <(right: LocalDate) = quote(infix"$left < $right".as[Boolean])
     }
 }
 
