@@ -18,7 +18,7 @@
         "classpath": [
             "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.5.2\\sbt-1.5.2.jar",
             "C:\\Users\\vriest\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar",
-            "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.9\\sbt-bloop-1.4.9.jar",
+            "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.10-8-8d1cbc4f\\sbt-bloop-1.4.10-8-8d1cbc4f.jar",
             "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\typesafe\\play\\sbt-plugin_2.12_1.0\\2.8.8\\sbt-plugin-2.8.8.jar",
             "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo.scala-sbt.org\\scalasbt\\sbt-plugin-releases\\org.foundweekends.giter8\\sbt-giter8-scaffold\\scala_2.12\\sbt_1.0\\0.11.0\\jars\\sbt-giter8-scaffold.jar",
             "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\main_2.12\\1.5.2\\main_2.12-1.5.2.jar",
@@ -285,17 +285,12 @@
                 {
                     "organization": "ch.epfl.scala",
                     "name": "sbt-bloop",
-                    "version": "1.4.9",
+                    "version": "1.4.10-8-8d1cbc4f",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sbt-bloop",
-                            "path": "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.9\\sbt-bloop-1.4.9.jar"
-                        },
-                        {
-                            "name": "sbt-bloop",
-                            "classifier": "sources",
-                            "path": "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.9\\sbt-bloop-1.4.9-sources.jar"
+                            "path": "C:\\Users\\vriest\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.10-8-8d1cbc4f\\sbt-bloop-1.4.10-8-8d1cbc4f.jar"
                         }
                     ]
                 },

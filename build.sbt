@@ -15,10 +15,13 @@ libraryDependencies ++= Seq(
 ).map(_ % circeVersion)
 libraryDependencies ++= Seq(
   guice,
-  "com.typesafe.play" %% "play-slick" % "5.0.0",
-  "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0",
-  "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
-  "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+  evolutions,
+  jdbc,
+  "net.codingwell"         %% "scala-guice"        % "5.0.2",
+  "org.postgresql"         % "postgresql"          % "9.4-1206-jdbc42",
+  "io.getquill"            %% "quill-jdbc"         % "3.10.0",
+  "org.mockito"            %  "mockito-core"       % "2.27.0"    % Test,
+  "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0"     % Test
 )
 
 
@@ -27,3 +30,5 @@ libraryDependencies ++= Seq(
 
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
+routesImport += "models.DateRange"
+routesImport += "binders.CustomBinders._"

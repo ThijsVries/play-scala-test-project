@@ -4,14 +4,15 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index()
+GET     /                               controllers.HomeController.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /create                     controllers.HomeController.test()
-GET     /books                      controllers.HomeController.getBooks()
-POST    /books                      controllers.HomeController.saveBook()
-
-GET     /author                     controllers.HomeController.saveAuthor()
-GET     /author/all                 controllers.HomeController.getAuthors()
+POST     /task                          controllers.TaskController.save()
+PUT      /task                          controllers.TaskController.update()
+GET      /task                          controllers.TaskController.all()
+GET      /task/status/:done             controllers.TaskController.byStatus(done : Boolean)
+GET      /task/between                  controllers.TaskController.between(between : DateRange)
+GET      /task/:taskId                  controllers.TaskController.get(taskId : Long)
+DELETE   /task/:taskId                  controllers.TaskController.delete(taskId : Long)
