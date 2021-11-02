@@ -4,13 +4,10 @@ import javax.inject._
 import play.api._
 import play.api.mvc._
 import play.api.libs.json.Json
-import models.Book
 import play.api.libs.json.Writes
 import play.api.libs.json.JsPath
 import play.api.libs.json.JsError
-import models.JsonMappingException
 import java.time.LocalDate
-import models.Author
 
 /** This controller creates an `Action` to handle HTTP requests to the
   * application's home page.

@@ -30,3 +30,5 @@ libraryDependencies ++= Seq(
 
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
+routesImport += "models.DateRange"
+routesImport += "binders.CustomBinders._"

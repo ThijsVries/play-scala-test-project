@@ -1,0 +1,3 @@
+package models.exceptions
+
+class JsonMappingException extends Exception
